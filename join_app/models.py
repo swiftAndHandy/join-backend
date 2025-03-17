@@ -9,9 +9,12 @@ class User(models.Model):
     email = models.EmailField(unique=True)
 
 class Contact(models.Model):
-    name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
-    address = models.CharField(max_length=255)
+    street = models.CharField(max_length=255)
+    zip_code = models.CharField(max_length=5)
+    city = models.CharField(max_length=30)
+    phone = models.CharField(max_length=15)
     email = models.EmailField()
 
 class Category(models.Model):
@@ -23,6 +26,7 @@ class Task(models.Model):
     description = models.TextField(blank=True, null=True)
     end_date = models.DateTimeField()
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
+    priority = models.IntegerField()
 
     assigned_users = models.ManyToManyField(User, related_name='tasks', blank=True)
     assigned_contacts = models.ManyToManyField(Contact, related_name='tasks', blank=True)
