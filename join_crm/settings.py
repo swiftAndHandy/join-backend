@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
-    '127.0.0.1',
+    '127.0.0.1'
 ]
 
 
@@ -59,18 +59,16 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-  'http://127.0.0.1:4200',
   'http://localhost:4200',
 ]
 
 CORS_ALLOWED_ORIGINS = [
-  'http://127.0.0.1:4200',
   'http://localhost:4200',
 ]
 
-CORS_ALLOW_HEADERS = list(default_headers) + [
-    'content-type',
-]
+# CORS_ALLOW_HEADERS = list(default_headers) + [
+#     'content-type',
+# ]
 
 ROOT_URLCONF = 'join_crm.urls'
 
