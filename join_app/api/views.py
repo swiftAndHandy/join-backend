@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from join_app.api.serializers import TaskSerializer, CategorySerializer, ContactSerializer
+from join_app.api.serializers import TaskSerializer, CategorySerializer, ContactSerializer, ContactListSerializer
 from join_app.models import Task, Category, Contact
 
 
@@ -20,5 +20,9 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
 
 class ContactViewSet(viewsets.ModelViewSet):
-    queryset = Contact.objects.all()
-    serializer_class = ContactSerializer
+    queryset = Contact.objects.all().order_by('first_name', 'surname')
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return ContactListSerializer
+        return ContactSerializer

@@ -16,6 +16,7 @@ class Contact(models.Model):
     city = models.CharField(max_length=30)
     phone = models.CharField(max_length=15)
     email = models.EmailField()
+    badge_color = models.CharField(max_length=9)
 
 class Category(models.Model):
     name = models.CharField(max_length=100)

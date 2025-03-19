@@ -66,9 +66,9 @@ CORS_ALLOWED_ORIGINS = [
   'http://localhost:4200',
 ]
 
-# CORS_ALLOW_HEADERS = list(default_headers) + [
-#     'content-type',
-# ]
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'content-type',
+]
 
 ROOT_URLCONF = 'join_crm.urls'
 
