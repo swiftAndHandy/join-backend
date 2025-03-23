@@ -18,6 +18,15 @@ class ContactSerializer(serializers.ModelSerializer):
         model = Contact
         fields = '__all__'
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+
+        address_fields = ['street', 'zip_code', 'city']
+        address = {field: data.pop(field) for field in address_fields if field in data}
+
+        data['address'] = address
+        return data
+
 class ContactListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
