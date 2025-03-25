@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from join_app.models import Task, Category, Contact
+from join_app.models import Task, Category, Contact, Subtask
 
 
 class TaskSerializer(serializers.ModelSerializer):
@@ -11,6 +11,11 @@ class TaskSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
+        fields = '__all__'
+
+class SubtaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subtask
         fields = '__all__'
 
 class ContactSerializer(serializers.ModelSerializer):
