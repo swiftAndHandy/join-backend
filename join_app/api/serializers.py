@@ -8,6 +8,11 @@ class TaskSerializer(serializers.ModelSerializer):
         model = Task
         fields = '__all__'
 
+class SummarySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = ['end_date', 'priority', 'state']
+
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category

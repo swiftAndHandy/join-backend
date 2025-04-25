@@ -28,6 +28,7 @@ class Task(models.Model):
     end_date = models.DateTimeField()
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     priority = models.IntegerField()
+    state = models.IntegerField()
 
     assigned_users = models.ManyToManyField(User, related_name='tasks', blank=True)
     assigned_contacts = models.ManyToManyField(Contact, related_name='tasks', blank=True)
